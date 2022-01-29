@@ -1,15 +1,13 @@
-use url_shortening::key_gen;
-use url_shortening::schema::{User};
+/* use url_shortening::key_gen;
+use url_shortening::schema::{User}; */
+use url_shortening::database::Database;
 
-fn main() {
-    println!("Hello, world!");
+#[tokio::main]
+async fn main() {
+    let database = Database::new().await.unwrap();
 
-    let user = User {
-        id: 1,
-        name: "test".to_string()
-    };
+    // database.init().await.unwrap();
 
-    println!("{user:?}");
-
-    key_gen::key_gen();
+    // database.insert("db.users", "(id, name)", "(0, 'test')").await.unwrap();
+    database.select("*", "db.users", "").await.unwrap();
 }

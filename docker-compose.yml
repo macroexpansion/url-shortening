@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+  local:
+    external: false
+
+services:
+  cassandra:
+    image: cassandra:latest
+    hostname: cassandra
+    container_name: cassandra
+    volumes:
+      - ./scripts/data.cql:/scripts/data.cql
+    networks:
+      - local
+    ports:
+      - 9042:9042
