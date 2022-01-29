@@ -15,3 +15,12 @@ services:
       - local
     ports:
       - 9042:9042
+
+  redis:
+    image: redis:latest
+    hostname: redis
+    container_name: redis
+    networks:
+      - local
+    ports:
+      - 6379:6379

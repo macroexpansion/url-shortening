@@ -1,3 +1,4 @@
-pub fn key_gen() {
-    println!("key gen");
+pub fn key_gen() -> &'static str {
+    // println!("key gen");
+    "aaaaaa"
 }
