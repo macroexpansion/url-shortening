@@ -39,7 +39,7 @@ async fn find_url(cache: &mut Connection, database: &Database, hash: &str) -> Re
     };
 
     // find in database
-    database.select("*", "db.urls", &format!("original_url = '{url}'")).await?;
+    database.select("*", "db.urls", &format!("hash = '{hash}'")).await?;
 
     // update cache
     cache.set("aaaaaa", "https://google.com")?;
